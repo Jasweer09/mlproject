@@ -79,7 +79,7 @@ class DataTransformation:
             #Performing the data transformation on both test and train input features
             
             input_train_feature_arr = preprocessor_obj.fit_transform(input_train_feature_df)
-            input_test_feature_arr = preprocessor_obj.fit_transform(input_test_feature_df)
+            input_test_feature_arr = preprocessor_obj.transform(input_test_feature_df)
             logging.info('Performing the data transformation on both test and train input features')
 
             train_arr = np.c_[

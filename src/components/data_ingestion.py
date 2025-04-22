@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 #used to create the class varaibles
 from dataclasses import dataclass
 from src.components.data_transformation import DataTransformation, DataTransformationConfig
+from src.components.model_trainer import ModelTrainer, ModelTrainerConfig
 
 '''dataclass is advantage, it helps to provide a constructor, string representation
 and comparision with stating in the class. It gonna provide to us'''
@@ -55,5 +56,8 @@ if __name__ == "__main__":
     obj = DataIngestion()
     train_data, test_data = obj.initiate_data_ingestion()
     data_transformation = DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr,_= data_transformation.initiate_data_transformation(train_data, test_data)
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_training(train_arr, test_arr))
+
 
